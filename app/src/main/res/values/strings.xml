@@ -6,4 +6,8 @@
     <string name="minss">minss</string>
     <string name="activity2">Activity2</string>
     <string name="actbtn">ActBtn</string>
+    <string name="signup">SignUP</string>
+    <string name="enter_email_here">Enter Email Here</string>
+    <string name="enter_password_here">Enter Password Here</string>
+    <string name="enter">Enter</string>
 </resources>

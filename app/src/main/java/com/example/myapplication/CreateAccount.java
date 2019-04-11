@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Activity2 extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
     //define a constant for your tag in MainActivity
     private static final String TAG = "LoginActivity";
 
@@ -43,7 +42,7 @@ public class Activity2 extends AppCompatActivity {
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
-
+    progressDialog.dismiss();
         /*
         Firebase
         * Create a new createAccount method which takes in an email address and password,
@@ -54,13 +53,15 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(Activity2.this,"Registered Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccount.this,"Registered Successfully", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                    updateUI(user);
                 }else{
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(Activity2.this,"Could not register", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAccount.this,"Could not register", Toast.LENGTH_SHORT).show();
+
+                    //use this to go to different activity
                     //updateUI(null);
                 }
             }
@@ -69,13 +70,15 @@ public class Activity2 extends AppCompatActivity {
         });
 
     }
-
+//update the ui or send user to different activity
 
     public void updateUI(FirebaseUser user){
 
-
+       // startActivity(new Intent(LoginActivity.this, CreateAccount.class));
 
     }
+
+
     /*
      * validate :boolean
      *
@@ -112,7 +115,7 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+        setContentView(R.layout.activity_create);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -127,7 +130,7 @@ public class Activity2 extends AppCompatActivity {
 
 
 
-
+//button press registers user
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

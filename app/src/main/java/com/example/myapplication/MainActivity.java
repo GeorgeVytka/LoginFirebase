@@ -3,11 +3,9 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 //option + enter to fix import
@@ -15,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 private int count = 0;
 
     public void openActivity2(){
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, CreateAccount.class);
         startActivity(intent);
     }
 

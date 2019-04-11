@@ -11,12 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ResetPasswordActivity"
+        <activity android:name=".userMainScreen"></activity>
+        <activity android:name=".LoginActivity"
             android:exported="true"/>
-        <activity android:name=".Activity2"
+        <activity
+            android:name=".ResetPasswordActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".CreateAccount"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

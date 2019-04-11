@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,13 +32,26 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         inputEmail = findViewById(R.id.resetEmailField);
         Passwordbtn = findViewById(R.id.resetPasswordField);
-
+        backBtn = findViewById(R.id.backRestBtn);
 
         mProgressBar = new ProgressBar(this);
 
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
+
+
+
+        //send user back to login page
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ResetPasswordActivity.this,LoginActivity.class));
+            }
+        });
+
+
+
 
 
         //when user clicks on reset password
